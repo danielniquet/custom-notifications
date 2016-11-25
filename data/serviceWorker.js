@@ -19,5 +19,6 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('push', function(event){
-	new Notification('qwe',{body:"qwe", tag: "asd"})
+	console.log('push', event)
+	// new Notification('qwe',{body:"qwe", tag: "asd"})
 })
