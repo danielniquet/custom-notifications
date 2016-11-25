@@ -13,6 +13,18 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
     // Registration was successful
     console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    {
+	  "body": "Did you make a $1,000,000 purchase at Dr. Evil...",
+	  "icon": "images/ccard.png",
+	  "vibrate": [200, 100, 200, 100, 200, 100, 400],
+	  "tag": "request",
+	  "actions": [
+	    { "action": "yes", "title": "Yes", "icon": "images/yes.png" },
+	    { "action": "no", "title": "No", "icon": "images/no.png" }
+	  ]
+	}
+    registration.showNotification(title, options);
+
   }).catch(function(err) {
     // registration failed :(
     console.log('ServiceWorker registration failed: ', err);
