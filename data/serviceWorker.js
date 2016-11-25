@@ -1,10 +1,23 @@
+'use strict';
+
 self.addEventListener('install', event => {
-  // Do install stuff
-  console.log('install SW')
+	console.log('install sw')
+  function onInstall () {
+    return caches.open('static')
+      .then(cache =>
+        cache.addAll([
+          '/images/lyza.gif',
+          '/js/site.js',
+          '/css/styles.css',
+          '/offline/',
+          '/'
+        ])
+      );
+  }
+
+  event.waitUntil(onInstall(event));
 });
 
 self.addEventListener('activate', event => {
-  // Do activate stuff: This will come later on.
-  console.log('activate SW')
-
+	console.log('activate sw')
 });
