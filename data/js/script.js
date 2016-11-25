@@ -12,7 +12,7 @@ function onPermissionDenied () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
     // Registration was successful
-    console.log('ServiceWorker registration successful: ', registration.getKey('p256dh'));
+    console.log('ServiceWorker registration successful: ', registration);
  //    var options= {
 	//   "body": "Did you make a $1,000,000 purchase at Dr. Evil...",
 	//   "icon": "http://image.freepik.com/iconos-gratis/cara-del-leon_318-74221.jpg",
@@ -27,6 +27,23 @@ if ('serviceWorker' in navigator) {
 }else{
 	console.log('Service workers aren\'t supported in this browser.')
 }
+navigator.serviceWorker.ready.then(function(reg) {  
+	reg.pushManager.getSubscription()  
+      .then(function(subscription) {  
+        // Enable any UI which subscribes / unsubscribes from  
+        // push messages.  
+
+        if (!subscription) {  
+          console.log('Not yet subscribed to Push')
+          // We aren't subscribed to push, so set UI  
+          // to allow the user to enable push  
+          return;  
+        }else{
+        	console.log(subscription)
+        }
+      })
+})
+
 
 app.controller('home', function ($scope) {
 	var user_name=moment().format(); //getting user name
