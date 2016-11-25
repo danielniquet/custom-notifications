@@ -1,0 +1,26 @@
+<html ng-app="home"  ng-controller="home">
+  <head>
+    <title>Custom push notifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    
+    <div class="container" >
+      <div class='rows'>
+        <h2>My ID: {{my_id}}</h2>
+        <h2>Moment: {{date}}</h2>
+
+      </div>      
+    </div>
+
+  </body>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="js/notify.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  <script src="js/script.js"></script>
+</html>

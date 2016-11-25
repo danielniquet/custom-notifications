@@ -1,0 +1,47 @@
+<html ng-app="home"  ng-controller="home">
+  <head>
+    <title>Custom push notifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="admin">
+    
+    <div class="container" >
+      <div class='rows'>
+        <div class="col-xs-4">
+          Select the user to send the notification
+          <ul class="user">
+            <!-- appending username  -->
+            <li class="" ng-repeat="user_list in user_show" ng-style="{
+                          'background': clicked==user_list.id ?  '#d2d2d2' :'#e2e2e2',
+                          'display': my_id==user_list.id ?  'none' :'block'
+                      }">
+                <input type="checkbox" value="{{ user_list.id }}|{{user_list.date}}">
+                <span id='{{user_list.id}}' >{{ user_list.date }} - <br>ID:{{ user_list.id }}</span>
+                <span class='you' ng-style="{
+                          'display': my_id==user_list.id ? 'block' :'none' 
+                      }">You  (ID: {{my_id}})</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="col-xs-8">
+          <div id="name-group" class="form-group">
+            <input type="text" class="form-control msg_box" id="msg_box" ng-model='msg_text' ng-keypress="send_msg($event)" placeholder="Type here the message of your Notification" />
+            <input type='text' style='display:none' ng-model='selected_id' />
+          </div>
+        </div>
+
+      </div>      
+    </div>
+
+  </body> 
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="js/notify.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  <script src="js/script.js"></script>
+</html>
