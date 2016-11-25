@@ -24,6 +24,9 @@ app.get("/",function(req,res){
 app.get("/admin",function(req,res){
     res.sendFile(__dirname + '/data/admin.html');
 });
+app.get("/sample",function(req,res){
+    res.sendFile(__dirname + '/data/sample/index.html');
+});
 
 
 // creating array of users.
