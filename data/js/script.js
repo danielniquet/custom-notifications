@@ -9,11 +9,11 @@ function onPermissionDenied () {
     console.warn('Permission has been denied by the user');
 }
 
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker.register('/js/serviceWorker.js', {
-//     scope: '/'
-//   });
-// }
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/js/serviceWorker.js', {
+    scope: '/'
+  });
+}
 
 app.controller('home', function ($scope) {
 	var user_name=moment().format(); //getting user name
