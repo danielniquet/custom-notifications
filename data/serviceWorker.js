@@ -17,3 +17,7 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
 	console.log('activate sw')
 });
+
+self.addEventListener('push', function(event){
+	new Notification('qwe',{body:"qwe", tag: "asd"})
+})
