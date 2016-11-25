@@ -23,7 +23,7 @@ if ('serviceWorker' in navigator) {
 	    { "action": "no", "title": "No", "icon": "images/no.png" }
 	  ]
 	}
-    registration.showNotification(title, options);
+    registration.showNotification('title', options);
 
   }).catch(function(err) {
     // registration failed :(
