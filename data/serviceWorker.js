@@ -2,20 +2,16 @@
 
 self.addEventListener('install', event => {
 	console.log('install sw')
-  function onInstall () {
-    return caches.open('static')
-      .then(cache =>
-        cache.addAll([
-          '/images/lyza.gif',
-          '/js/site.js',
-          '/css/styles.css',
-          '/offline/',
-          '/'
-        ])
-      );
-  }
+  // function onInstall () {
+  //   return caches.open('static')
+  //     .then(cache =>
+  //       cache.addAll([
+  //         '/images/lyza.gif'
+  //       ])
+  //     );
+  // }
 
-  event.waitUntil(onInstall(event));
+  // event.waitUntil(onInstall(event));
 });
 
 self.addEventListener('activate', event => {
