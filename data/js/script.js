@@ -10,7 +10,9 @@ function onPermissionDenied () {
 }
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/js/serviceWorker.js');
+  navigator.serviceWorker.register('/serviceWorker.js', {
+    scope: '/'
+  });
 }
 
 app.controller('home', function ($scope) {
