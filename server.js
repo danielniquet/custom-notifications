@@ -1,11 +1,11 @@
 var fs = require('fs');
 var app = require("express")();
 var bodyParser = require('body-parser');
-var https = require('https');
-var options = {
-   key  : fs.readFileSync('server.key'),
-   cert : fs.readFileSync('server.crt')
-};
+// var https = require('https');
+// var options = {
+//    key  : fs.readFileSync('server.key'),
+//    cert : fs.readFileSync('server.crt')
+// };
 var http = require('http').Server(app);
 // http=https.createServer(options, app) 
 
