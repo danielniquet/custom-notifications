@@ -15,13 +15,8 @@ if ('serviceWorker' in navigator) {
     console.log('ServiceWorker registration successful with scope: ', registration.scope);
     var options= {
 	  "body": "Did you make a $1,000,000 purchase at Dr. Evil...",
-	  "icon": "images/ccard.png",
-	  "vibrate": [200, 100, 200, 100, 200, 100, 400],
-	  "tag": "request",
-	  "actions": [
-	    { "action": "yes", "title": "Yes", "icon": "images/yes.png" },
-	    { "action": "no", "title": "No", "icon": "images/no.png" }
-	  ]
+	  "icon": "http://image.freepik.com/iconos-gratis/cara-del-leon_318-74221.jpg",
+	  "tag": "request"
 	}
     registration.showNotification('title', options);
 
