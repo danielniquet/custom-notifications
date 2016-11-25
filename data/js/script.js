@@ -27,21 +27,52 @@ if ('serviceWorker' in navigator) {
 }else{
 	console.log('Service workers aren\'t supported in this browser.')
 }
-navigator.serviceWorker.ready.then(function(reg) {  
-	reg.pushManager.getSubscription()  
-      .then(function(subscription) {  
-        // Enable any UI which subscribes / unsubscribes from  
-        // push messages.  
+function subscribe(){
+	navigator.serviceWorker.ready.then(function(reg) {
+        reg.pushManager.subscribe({userVisibleOnly: true})
+          .then(function(subscription) {
+            // The subscription was successful
+            
+            // Update status to subscribe current user on server, and to let
+            // other users know this user has subscribed
+            var endpoint = subscription.endpoint;
+            var key = subscription.getKey('p256dh');
+            console.log(endpoint,key,'subscribe');
+          })
+          .catch(function(e) {
+            if (Notification.permission === 'denied') {
+              // The user denied the notification permission which
+              // means we failed to subscribe and the user will need
+              // to manually change the notification permission to
+              // subscribe to push messages
+              console.log('Permission for Notifications was denied');
+              
+            } else {
+              // A problem occurred with the subscription, this can
+              // often be down to an issue or lack of the gcm_sender_id
+              // and / or gcm_user_visible_only
+              console.log('Unable to subscribe to push.', e);
+            }
+          });
+      });
+}
+subscribe()
 
-        if (!subscription) {  
-          console.log('Not yet subscribed to Push')
-          // We aren't subscribed to push, so set UI  
-          // to allow the user to enable push  
-          return;  
-        }else{
-        	console.log(subscription)
-        }
-      })
+navigator.serviceWorker.ready.then(function(reg) {  
+	// reg.pushManager.getSubscription()  
+ //      .then(function(subscription) {  
+ //        // Enable any UI which subscribes / unsubscribes from  
+ //        // push messages.  
+
+ //        if (!subscription) {  
+ //          console.log('Not yet subscribed to Push')
+ //          // We aren't subscribed to push, so set UI  
+ //          // to allow the user to enable push  
+ //          return;  
+ //        }else{
+ //        	console.log(subscription)
+ //        }
+ //      })
 })
 
 
