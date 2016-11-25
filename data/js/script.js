@@ -17,6 +17,8 @@ if ('serviceWorker' in navigator) {
     // registration failed :(
     console.log('ServiceWorker registration failed: ', err);
   });
+}else{
+	console.log('Service workers aren\'t supported in this browser.')
 }
 
 app.controller('home', function ($scope) {
