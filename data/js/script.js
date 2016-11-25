@@ -12,13 +12,13 @@ function onPermissionDenied () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
     // Registration was successful
-    console.log('ServiceWorker registration successful with scope: ', registration);
-    var options= {
-	  "body": "Did you make a $1,000,000 purchase at Dr. Evil...",
-	  "icon": "http://image.freepik.com/iconos-gratis/cara-del-leon_318-74221.jpg",
-	  "tag": "request"
-	}
-    registration.showNotification('title', options);
+    console.log('ServiceWorker registration successful: ', registration);
+ //    var options= {
+	//   "body": "Did you make a $1,000,000 purchase at Dr. Evil...",
+	//   "icon": "http://image.freepik.com/iconos-gratis/cara-del-leon_318-74221.jpg",
+	//   "tag": "request"
+	// }
+ //    registration.showNotification('title', options);
 
   }).catch(function(err) {
     // registration failed :(
